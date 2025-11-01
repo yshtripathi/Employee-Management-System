@@ -6,7 +6,7 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
 
 ## Features
 - Login authentication using MySQL database  
-- Add, view, and remove employees (upcoming)  
+- Add, view, update and remove employees (upcoming)  
 - Simple and user-friendly interface  
 - Splash screen at startup  
 - Uses JDBC for database connectivity  
