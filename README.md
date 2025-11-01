@@ -32,7 +32,7 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
 
    INSERT INTO login VALUES ('admin', 'admin123');
 3. Create a table for employee:
-   sql``
+   ```sql
    CREATE TABLE employee (
     name VARCHAR(40),
     fname VARCHAR(40),
