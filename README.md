@@ -31,3 +31,19 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
    );
 
    INSERT INTO login VALUES ('admin', 'admin123');
+3. Create a table for employee:
+   sql``
+   CREATE TABLE employee (
+    name VARCHAR(40),
+    fname VARCHAR(40),
+    dob VARCHAR(40),
+    salary VARCHAR(20),
+    address VARCHAR(100),
+    phone VARCHAR(20),
+    email VARCHAR(50),
+    education VARCHAR(40),
+    designation VARCHAR(40),
+    aadhar VARCHAR(20),
+    empID VARCHAR(20)
+);
+
