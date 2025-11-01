@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 
 public class Home extends JFrame {
 
-
-
     Home(){
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/home.jpg"));
