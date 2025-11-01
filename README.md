@@ -44,8 +44,7 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
     education VARCHAR(40),
     designation VARCHAR(40),
     aadhar VARCHAR(20),
-    empID VARCHAR(20)
-);
+    empID VARCHAR(20));
 
 
 
