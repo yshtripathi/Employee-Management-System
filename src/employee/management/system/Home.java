@@ -28,7 +28,8 @@ public class Home extends JFrame {
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new AddEmployee();
+                setVisible(false);
             }
         });
         img.add(add);
@@ -40,7 +41,8 @@ public class Home extends JFrame {
         view.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new ViewEmployee();
+                setVisible(false);
             }
         });
         img.add(view);
