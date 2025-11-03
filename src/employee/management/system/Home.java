@@ -54,7 +54,7 @@ public class Home extends JFrame {
         delete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new RemoveEmployee();
             }
         });
         img.add(delete);
