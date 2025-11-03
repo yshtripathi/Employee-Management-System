@@ -1,24 +1,28 @@
-package employee.management.system;
+package employee.management.system.crud;
 
 import com.toedter.calendar.JDateChooser;
+import employee.management.system.database.Conn;
+import employee.management.system.Home;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.ResultSet;
+import java.util.Random;
 
+public class AddEmployee extends JFrame implements ActionListener {
 
-public class UpdateEmployee extends JFrame implements ActionListener {
+    Random ran = new Random();
+    int number = ran.nextInt(999999);
 
-    JTextField teducation, tfname, taddress, tdesignation, tphone, tadhar, temail, tsalary;
+    JTextField tname, tfname, taddress, tdesignation, tphone, tadhar, temail, tsalary;
     JLabel tempid;
     JDateChooser tdob;
+    JComboBox BoxEducation;
     JButton add, back;
-    String number;
 
-    UpdateEmployee(String number){
-        this.number = number;
+    public AddEmployee() {
+
         getContentPane().setBackground(new Color(163, 255, 188));
         setLayout(null);
 
@@ -33,7 +37,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         name.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(name);
 
-        JLabel tname = new JLabel();
+        tname = new JTextField();
         tname.setBounds(200, 150, 150, 30);
         tname.setBackground(new Color(177, 252, 197));
         add(tname);
@@ -55,9 +59,9 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         dob.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(dob);
 
-        JLabel tdob = new JLabel();
-        tdob.setBounds(200,200,150,30);
-        tdob.setFont(new Font("Tahoma", Font.BOLD,20));
+        tdob = new JDateChooser();
+        tdob.setBounds(200, 200, 150, 30);
+        tdob.setBackground(new Color(177, 252, 197));
         add(tdob);
 
         // Salary
@@ -110,10 +114,15 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         education.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(education);
 
-        teducation = new JTextField();
-        teducation.setBounds(600, 300, 150, 30);
-        teducation.setBackground(new Color(177, 252, 197));
-        add(teducation);
+        String items[] = {
+                "High School (10th)", "Intermediate (12th)", "Diploma", "BCA", "BBA",
+                "BA", "B.Com", "B.Sc", "B.Tech", "MCA", "MBA", "MA",
+                "M.Com", "M.Sc", "M.Tech", "PhD"
+        };
+        BoxEducation = new JComboBox(items);
+        BoxEducation.setBackground(new Color(177, 252, 197));
+        BoxEducation.setBounds(600, 300, 150, 30);
+        add(BoxEducation);
 
         // Aadhar
         JLabel aadhar = new JLabel("Aadhar Card");
@@ -121,7 +130,7 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         aadhar.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(aadhar);
 
-        JLabel tadhar = new JLabel();
+        tadhar = new JTextField();
         tadhar.setBounds(200, 350, 150, 30);
         tadhar.setBackground(new Color(177, 252, 197));
         add(tadhar);
@@ -143,34 +152,13 @@ public class UpdateEmployee extends JFrame implements ActionListener {
         empid.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(empid);
 
-        tempid = new JLabel();
+        tempid = new JLabel("" + number);
         tempid.setBounds(200, 400, 150, 30);
         tempid.setForeground(Color.red);
         tempid.setFont(new Font("SAN_SERIF", Font.BOLD, 20));
         add(tempid);
 
-        try{
-            Conn c = new Conn();
-            String query = "select * from employee where empid ='"+number+"'";
-            ResultSet resultSet = c.statement.executeQuery(query);
-            while(resultSet.next()){
-                tname.setText(resultSet.getString("name"));
-                tfname.setText(resultSet.getString("fname"));
-                tdob.setText(resultSet.getString("dob"));
-                tsalary.setText(resultSet.getString("salary"));
-                taddress.setText(resultSet.getString("address"));
-                tphone.setText(resultSet.getString("phone"));
-                temail.setText(resultSet.getString("email"));
-                teducation.setText(resultSet.getString("education"));
-                tdesignation.setText(resultSet.getString("designation"));
-                tadhar.setText(resultSet.getString("aadhar"));
-                tempid.setText(resultSet.getString("empid"));
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        add = new JButton("UPDATE");
+        add = new JButton("ADD");
         add.setBounds(450,550,150,40);
         add.setBackground(Color.BLACK);
         add.setForeground(Color.white);
@@ -193,39 +181,49 @@ public class UpdateEmployee extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == add){
+            String name = tname.getText();
             String fname = tfname.getText();
+            String dob = ((JTextField) tdob.getDateEditor().getUiComponent()).getText();
             String salary = tsalary.getText();
             String address = taddress.getText();
             String phone = tphone.getText();
             String email = temail.getText();
-            String education = teducation.getText();
+            String education = (String) BoxEducation.getSelectedItem();
             String designation = tdesignation.getText();
-            try{
-               Conn c = new Conn();
-                String query = "UPDATE employee SET " +
-                        "fname = '" + fname + "', " +
-                        "salary = '" + salary + "', " +
-                        "address = '" + address + "', " +
-                        "phone = '" + phone + "', " +
-                        "email = '" + email + "', " +
-                        "education = '" + education + "', " +
-                        "designation = '" + designation + "' " +
-                        "WHERE empid = '" + number + "'";
+            String empid = tempid.getText();
+            String aadhar = tadhar.getText();
+
+            try {
+                Conn c = new Conn();
+                String query = "INSERT INTO employee VALUES('"
+                        + name + "', '"
+                        + fname + "', '"
+                        + dob + "', '"
+                        + address + "', '"
+                        + phone + "', '"
+                        + email + "', '"
+                        + education + "', '"
+                        + designation + "', '"
+                        + salary + "', '"
+                        + aadhar + "', '"
+                        + empid + "')";
                 c.statement.executeUpdate(query);
-                JOptionPane.showMessageDialog(null,"Details Updated Successfully");
+                JOptionPane.showMessageDialog(null, "Details added successfully");
                 setVisible(false);
                 new Home();
+
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
+
         }
         else{
             setVisible(false);
-            new ViewEmployee();
+            new Home();
         }
     }
 
     public static void main(String[] args) {
-        new UpdateEmployee("");
+        new AddEmployee();
     }
 }

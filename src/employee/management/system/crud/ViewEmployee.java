@@ -1,5 +1,7 @@
-package employee.management.system;
+package employee.management.system.crud;
 
+import employee.management.system.database.Conn;
+import employee.management.system.Home;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.*;
@@ -15,7 +17,7 @@ public class ViewEmployee extends JFrame implements ActionListener {
     JButton searchbtn, print, update, back;
     JTable table;
 
-    ViewEmployee(){
+    public ViewEmployee(){
 
         getContentPane().setBackground(new Color(255,131,122));
         JLabel search = new JLabel("Search by Employee Id");

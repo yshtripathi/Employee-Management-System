@@ -1,6 +1,7 @@
-package employee.management.system;
+package employee.management.system.crud;
 
-import com.mysql.cj.jdbc.result.ResultSetImpl;
+import employee.management.system.database.Conn;
+import employee.management.system.Home;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +17,7 @@ public class RemoveEmployee extends JFrame implements ActionListener {
 
     JButton delete, back;
 
-    RemoveEmployee(){
+    public RemoveEmployee(){
 
         JLabel label = new JLabel("Employee Id");
         label.setBounds(50,50,100,30);

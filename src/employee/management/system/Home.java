@@ -1,5 +1,9 @@
 package employee.management.system;
 
+import employee.management.system.crud.AddEmployee;
+import employee.management.system.crud.RemoveEmployee;
+import employee.management.system.crud.ViewEmployee;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +11,7 @@ import java.awt.event.ActionListener;
 
 public class Home extends JFrame {
 
-    Home(){
+   public Home(){
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/home.jpg"));
         Image i2 = i1.getImage().getScaledInstance(1120,630, Image.SCALE_DEFAULT);

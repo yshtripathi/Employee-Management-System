@@ -1,4 +1,4 @@
-package employee.management.system;
+package employee.management.system.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.Statement;
 public class Conn {
 
     Connection connection;
-    Statement statement;
+    public Statement statement;
 
     public Conn(){
         try{

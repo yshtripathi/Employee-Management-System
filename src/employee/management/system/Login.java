@@ -1,5 +1,7 @@
 package employee.management.system;
 
+import employee.management.system.database.Conn;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
