@@ -46,7 +46,29 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
     aadhar VARCHAR(20),
     empID VARCHAR(20));
 
+---
 
+## JAR Files
+
+This project uses a few external **JAR libraries** for additional functionality.  
+All the required `.jar` files are included inside the **`lib/`** folder in this project.
+
+| File Name | Purpose |
+|------------|----------|
+| **mysql-connector-java-x.x.x.jar** | Enables the Java application to connect with the MySQL database using JDBC. |
+| **jcalendar-x.x.jar** | Provides a date picker component for selecting dates easily in Swing forms. |
+| **rs2xml.jar** | Converts SQL `ResultSet` into `TableModel` for displaying data in a `JTable`. |
+
+### 🧩 Setup Instructions
+1. Ensure that all the `.jar` files are present in the `lib/` directory of your project.  
+2. Add them to your project classpath:
+   - **In IntelliJ IDEA:**  
+     `File → Project Structure → Modules → Dependencies → + → JARs or directories`
+   - **In Eclipse:**  
+     `Right-click Project → Build Path → Configure Build Path → Add External JARs`
+3. Apply the changes and rebuild your project.
+
+---
 
 ## Clone_and_Run_This_Project:
   Step_1: Clone the repository
