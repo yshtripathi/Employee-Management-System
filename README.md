@@ -59,7 +59,7 @@ All the required `.jar` files are included inside the **`lib/`** folder in this 
 | **jcalendar-x.x.jar** | Provides a date picker component for selecting dates easily in Swing forms. |
 | **rs2xml.jar** | Converts SQL `ResultSet` into `TableModel` for displaying data in a `JTable`. |
 
-### 🧩 Setup Instructions
+### Setup Instructions
 1. Ensure that all the `.jar` files are present in the `lib/` directory of your project.  
 2. Add them to your project classpath:
    - **In IntelliJ IDEA:**  
