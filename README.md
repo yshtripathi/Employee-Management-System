@@ -50,14 +50,14 @@ A simple **Java Swing and MySQL** based desktop application to manage employee d
 
 ## Clone_and_Run_This_Project:
   Step_1: Clone the repository
-    - command: git clone https://github.com/yshtripathi/Employee-Management-System.git
+   - command: git clone https://github.com/yshtripathi/Employee-Management-System.git
 
   Step_2: Open the project in your preferred IDE
-    - note: Use IntelliJ IDEA, Eclipse, or VS Code
+   - note: Use IntelliJ IDEA, Eclipse, or VS Code
 
   Step_3: Set up MySQL
-    - note: Create the database and tables as mentioned above
+   - note: Create the database and tables as mentioned above
 
   Step_4: Run the project
-    - note: Run the Main or Login class file to start the application
+   - note: Run the Main or Login class file to start the application
 
